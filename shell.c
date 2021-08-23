@@ -1,12 +1,15 @@
 #include "shell.h"
 
-extern char **environ;
+/**
+ * main - main function
+ * Return: an integer.
+ */
+
 int main(void)
 {
 	char *prompt = "Holbies$ ";
 	char *line;
 	char **list_args; /*array that save all arguments*/
-	int st;
 	char *argv, *path;
 
 	while (1)
@@ -20,7 +23,7 @@ int main(void)
 		{
 			if (count_words(line) > 1)
 			{
-				perror("1: exit: Illegal number: djdhf");
+				perror("1: exit: Illegal number: args");
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -29,12 +32,11 @@ int main(void)
 			}
 		}
 		path = get_path(argv);
-		/*if (path == NULL)*/
-		st = execute(path, list_args);
-
-		/*printf("%s\n", path);
-	printf("%s\n", argv);
-	printf("-->%s\n-->%s\n-->%s\n", list_args[0], list_args[1], list_args[2]);*/
+		if (path == NULL)
+		{
+			perror("comand not found");
+		}
+		execute(path, list_args);
 	}
 	free(line);
 }
