@@ -1,6 +1,11 @@
 #include "shell.h"
-
 #define DELIMITERS " \n"
+
+/**
+ * tokenize - separate a line in arguments
+ * @str: get the string to be tokenized
+ * Return: char double pointer
+ */
 
 char **tokenize(char *str)
 {
@@ -8,15 +13,15 @@ char **tokenize(char *str)
 	char *str_temp;
 	int position = 0;
 	char *divided_args = NULL;
-	char **args = malloc(bufsize * sizeof(char*) + 1);
+	char **args = malloc(bufsize * sizeof(char *) + 1);
 
 	/*verify if malloc alloc the memory*/
 	if (args == NULL)
-		{
-			return(NULL);
-		}
+	{
+		return (NULL);
+	}
 
- 	/* divide the str "the line obtained" in smaller strings */
+	/* divide the str "the line obtained" in smaller strings */
 	/* get pointer to the first string(argument)*/
 	str_temp = strdup(str);
 	divided_args = strtok(str_temp, DELIMITERS);
@@ -29,5 +34,5 @@ char **tokenize(char *str)
 		divided_args = strtok(NULL, DELIMITERS);
 	}
 	args[position] = NULL;
-	return(args); /*return the list of arguments*/
+	return (args); /*return the list of arguments*/
 }
