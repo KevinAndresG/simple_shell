@@ -7,7 +7,7 @@
  * @str: the string pased
  * Return: an int
  */
-int count_words(char *str)
+int count_words(char *str, char *delim)
 {
 	int state = OUT;
 	unsigned int wc = 0; /*count*/
@@ -17,7 +17,7 @@ int count_words(char *str)
 	{
 		/* If next character is a separator, set the */
 		/* state as OUT */
-		if (*str == ' ' || *str == '\n' || *str == '\t')
+		if (*str == *delim || *str == '\n' || *str == '\t')
 			state = OUT;
 
 		/* If next character is not a word separator and */

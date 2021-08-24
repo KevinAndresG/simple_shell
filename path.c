@@ -9,34 +9,34 @@
  * Return: a pointer to the path where the command is located.
  */
 
-char *get_path(const char *args)
+char *get_path(char *args)
 /*void main(void)*/
 {
-	char *value_path = _getenv("PATH");
-	char *path = NULL, *argv = NULL, *temp = NULL;
+	char *value_path = NULL;
+	char *temp = NULL, **new_path;
 	struct stat st = {0};
-	char *directory = malloc(strlen(value_path) * sizeof(char *) + 1);
+	int numpath, i;
 
-	if (directory == NULL)
-		return (NULL);
-	directory = strtok(value_path, ":\n");
+	if (stat(args, &st) == 0)
+		return (args);
 
-	argv = strdup(args);
-	while (directory != NULL || value_path == NULL)
+	value_path = _getenv("PATH");
+	numpath = count_words(value_path, ":");
+
+	new_path = tokenize(value_path, ":");
+
+	for (i = 0; i < numpath; i++)
 	{
-		temp = strdup(directory);
-		path = _strcat(temp, "/");
-		path = _strcat(path, argv);
-		/*printf("%s\n", path);*/
-		if (stat(path, &st) == -1)
+		temp = strdup(new_path[i]);
+		_strcat(temp, "/");
+		_strcat(temp, args);
+		if (stat(temp, &st) == 0)
 		{
+			free(new_path);
+			return (temp);
 		}
-		else
-		{
-			return (path);
-		}
-		directory = strtok(NULL, ":\n");
 	}
+	free(new_path);
 	perror(args);
 	return (NULL);
 }

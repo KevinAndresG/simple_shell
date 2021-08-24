@@ -7,12 +7,11 @@
  * Return: char double pointer
  */
 
-char **tokenize(char *str)
+char **tokenize(char *str, char *delim)
 {
-	int bufsize = count_words(str); /* to assign the exact memory*/
+	int bufsize = count_words(str, delim); /* to assign the exact memory*/
 	char *str_temp;
 	int position = 0;
-	char *divided_args = NULL;
 	char **args = malloc(bufsize * sizeof(char *) + 1);
 
 	/*verify if malloc alloc the memory*/
@@ -24,15 +23,12 @@ char **tokenize(char *str)
 	/* divide the str "the line obtained" in smaller strings */
 	/* get pointer to the first string(argument)*/
 	str_temp = strdup(str);
-	divided_args = strtok(str_temp, DELIMITERS);
-	while (divided_args != NULL)
+	args[0] = strtok(str_temp, delim);
+	for (position = 1; position < bufsize; position++)
 	{
 		/* asign the argument to each position of the array args*/
-		args[position] = divided_args;
-		position++;
-		/* get other strings*/
-		divided_args = strtok(NULL, DELIMITERS);
+		/* get othe strings*/
+		args[position] = strtok(NULL, delim);
 	}
-	args[position] = NULL;
 	return (args); /*return the list of arguments*/
 }

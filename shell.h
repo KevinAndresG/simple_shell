@@ -10,13 +10,13 @@ extern char **environ;
 
 int main(void);
 char *read_line(void);
-char **tokenize(char *str);
+char **tokenize(char *str, char *delim);
 int execute(char *path, char **args);
 char *_getenv(const char *name);
 char *get_path(char *args);
 
 /*FUNCTION HELPERS*/
-int count_words(char *str);
+int count_words(char *str, char *delim);
 int _strlen(const char *s);
 char *_strdup(const char *s);
 char *_strcat(char *dest, char *src);

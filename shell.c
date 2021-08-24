@@ -14,15 +14,17 @@ int main(void)
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) != 0 )
-		write(STDOUT_FILENO, prompt, strlen(prompt));
-		line = read_line();
-		list_args = tokenize(line); /*split line for get arguments*/
+		if (isatty(STDIN_FILENO) != 0)
+			write(STDOUT_FILENO, prompt, strlen(prompt));
+		line = read_line(); /* get line written*/
+		if (line == NULL)
+			exit(0);
+		list_args = tokenize(line, " \n"); /*split line for get arguments*/
 		argv = list_args[0];
 
 		if (strcmp(argv, "exit") == 0)
 		{
-			if (count_words(line) > 1)
+			if (count_words(line, " ") > 1)
 			{
 				perror("1: exit: Illegal number: args");
 				exit(EXIT_FAILURE);
