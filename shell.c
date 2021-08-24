@@ -14,6 +14,7 @@ int main(void)
 
 	while (1)
 	{
+		if (isatty(STDIN_FILENO) != 0 )
 		write(STDOUT_FILENO, prompt, strlen(prompt));
 		line = read_line();
 		list_args = tokenize(line); /*split line for get arguments*/
