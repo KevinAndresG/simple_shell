@@ -13,7 +13,7 @@ char *read_line(void);
 char **tokenize(char *str);
 int execute(char *path, char **args);
 char *_getenv(const char *name);
-char *get_path(const char *args);
+char *get_path(char *args);
 
 /*FUNCTION HELPERS*/
 int count_words(char *str);
