@@ -12,7 +12,7 @@ int main(void)
 	char *argv, *path;
 	int count = 0;
 
-	signal(SIGINT, _sing);
+	signal(SIGINT, _sign);
 	while (1)
 	{
 		line = read_line(); /* get line written*/
