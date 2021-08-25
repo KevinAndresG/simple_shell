@@ -17,24 +17,28 @@ int main(void)
 		if (isatty(STDIN_FILENO) != 0)
 			write(STDOUT_FILENO, prompt, strlen(prompt));
 		line = read_line(); /* get line written*/
-		if (line == NULL)
-			exit(0);
-		list_args = tokenize(line, " \n"); /*split line for get arguments*/
-		argv = list_args[0];
-
-		if (strcmp(argv, "exit") == 0)
+		if (line != NULL && line[0] != '\n')
 		{
-			if (count_words(line, " ") > 1)
+			list_args = tokenize(line, " \n"); /*split line for get arguments*/
+			argv = list_args[0];
+
+			if (strcmp(argv, "exit") == 0)
 			{
-				perror("1: exit: Illegal number: args");
+				if (count_words(line, " ") > 1)
+				{
+					perror("1: exit: Illegal number: args");
+				}
+				else
+				{
+					return (0);
+				}
 			}
-			else
+			path = get_path(argv);
+			if (path != NULL)
 			{
-				return (0);
+				execute(path, list_args);
 			}
 		}
-		path = get_path(argv);
-		execute(path, list_args);
 	}
 	free(line);
 }

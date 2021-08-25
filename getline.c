@@ -12,17 +12,9 @@ char *read_line(void)
 
 	if (getline(&line, &size, stdin) == -1)
 	{
-		if (feof(stdin))
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			perror("Error read line");
-			exit(EXIT_FAILURE);
-		}
+		exit(EXIT_FAILURE);
 		free(line);
 		return (NULL);
 	}
-	return (line);
+		return (line);
 }

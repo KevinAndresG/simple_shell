@@ -35,6 +35,7 @@ char *get_path(char *args)
 			return (temp);
 		}
 	}
+	free(temp);
 	free(new_path);
 	perror(args);
 	return (NULL);
