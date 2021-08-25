@@ -2,9 +2,10 @@
 #define DELIMITERS " \n"
 
 /**
- * tokenize - separate a line in arguments
- * @str: get the string to be tokenized
- * Return: char double pointer
+ * tokenize - separate a line in arguments.
+ * @str: get the string to be tokenized.
+ * @delim: string with delimiters.
+ * Return: a pointer to an array of strings.
  */
 
 char **tokenize(char *str, char *delim)
@@ -22,7 +23,7 @@ char **tokenize(char *str, char *delim)
 
 	/* divide the str "the line obtained" in smaller strings */
 	/* get pointer to the first string(argument)*/
-	str_temp = strdup(str);
+	str_temp = _strdup(str);
 	args[0] = strtok(str_temp, delim);
 	for (position = 1; position < bufsize; position++)
 	{

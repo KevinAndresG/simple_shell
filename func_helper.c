@@ -2,31 +2,26 @@
 
 #define OUT 0
 #define IN 1
+
 /**
- * count_words - for get the line
- * @str: the string pased
- * Return: an int
+ * count_words - function that counts the words in a string.
+ * @str: the string pased.
+ * @delim: delimiters.
+ * Return: integer - number of words counted.
  */
 int count_words(char *str, char *delim)
 {
 	int state = OUT;
 	unsigned int wc = 0; /*count*/
 
-	/* scan all characters one by one */
 	while (*str)
 	{
-		/* If next character is a separator, set the */
-		/* state as OUT */
 		if (*str == *delim || *str == '\n' || *str == '\t')
 			state = OUT;
-
-		/* If next character is not a word separator and */
-		/* state is OUT, then set the state as IN and */
-		/* increment word count */
 		else if (state == OUT)
 		{
 			state = IN;
-			++wc;
+			++wc; /* increment word count */
 		}
 		/* Move to next character */
 		++str;
@@ -67,6 +62,7 @@ char *_strdup(const char *s)
 		return (NULL);
 
 	i = _strlen(s);
+	if (i != 0)
 	i++;
 	ptr_dup = malloc(sizeof(s) * i);
 	if (ptr_dup == NULL)
@@ -80,10 +76,10 @@ char *_strdup(const char *s)
 }
 
 /**
- * _strcat - function that
+ * _strcat - function that concatenates two strings.
  * @dest: string.
  * @src: string.
- * Return: string.
+ * Return: concatenated string.
  */
 
 char *_strcat(char *dest, char *src)

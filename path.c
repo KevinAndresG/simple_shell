@@ -10,7 +10,6 @@
  */
 
 char *get_path(char *args)
-/*void main(void)*/
 {
 	char *value_path = NULL;
 	char *temp = NULL, **new_path;
@@ -27,7 +26,7 @@ char *get_path(char *args)
 
 	for (i = 0; i < numpath; i++)
 	{
-		temp = strdup(new_path[i]);
+		temp = _strdup(new_path[i]);
 		_strcat(temp, "/");
 		_strcat(temp, args);
 		if (stat(temp, &st) == 0)

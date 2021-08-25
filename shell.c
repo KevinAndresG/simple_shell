@@ -27,7 +27,6 @@ int main(void)
 			if (count_words(line, " ") > 1)
 			{
 				perror("1: exit: Illegal number: args");
-				exit(EXIT_FAILURE);
 			}
 			else
 			{
@@ -37,7 +36,7 @@ int main(void)
 		path = get_path(argv);
 		if (path == NULL)
 		{
-			perror("comand not found");
+			p_error();
 		}
 		execute(path, list_args);
 	}
