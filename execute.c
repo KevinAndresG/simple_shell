@@ -1,7 +1,6 @@
 #include "shell.h"
 #include <sys/wait.h>
 
-/* https://www.delftstack.com/howto/c/execvp-in-c/ */
 
 /**
  * execute - here we execute the comand found
@@ -14,22 +13,29 @@ int execute(char *path, char **args)
 {
 	pid_t pid;
 	int status;
+	int value;
+	int i;
 
 	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error");
+		exit(1);
+	}
 	if (pid == 0)
 	{
-		execve(path, args, environ);
-	}
-	else if (pid < 0)
-	{
-		perror("Erroor:");
+		value = execve(path, args, environ);
+		if (value == -1)
+		{
+			perror(args[0]);
+			for (i = 0; args[0]; i++)
+			free(args[i]);
+			exit(127);
+		}
 	}
 	else
-	{
-		/*Parent process*/
 		do {
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
-	}
 	return (0);
 }

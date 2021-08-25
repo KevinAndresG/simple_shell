@@ -7,22 +7,22 @@
 
 int main(void)
 {
-	char *prompt = "Holbies$ ";
 	char *line;
 	char **list_args; /*array that save all arguments*/
 	char *argv, *path;
+	int count = 0;
 
+	signal(SIGINT, _sing);
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) != 0)
-			write(STDOUT_FILENO, prompt, strlen(prompt));
 		line = read_line(); /* get line written*/
+		count++;
 		if (line != NULL && line[0] != '\n')
 		{
 			list_args = tokenize(line, " \n"); /*split line for get arguments*/
 			argv = list_args[0];
 
-			if (strcmp(argv, "exit") == 0)
+			if (_strcmp(argv, "exit") == 0)
 			{
 				if (count_words(line, " ") > 1)
 				{
@@ -34,6 +34,10 @@ int main(void)
 				}
 			}
 			path = get_path(argv);
+			if (path == NULL)
+			{
+				p_error(argv, count);
+			}
 			if (path != NULL)
 			{
 				execute(path, list_args);
