@@ -34,10 +34,6 @@ int main(void)
 			}
 		}
 		path = get_path(argv);
-		if (path == NULL)
-		{
-			p_error();
-		}
 		execute(path, list_args);
 	}
 	free(line);
