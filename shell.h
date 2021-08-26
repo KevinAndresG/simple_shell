@@ -25,5 +25,6 @@ char *_strdup(const char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 void p_error(char *argv, int count);
+void _exit_o(char *argv, char *line);
 
 #endif

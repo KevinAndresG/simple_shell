@@ -26,3 +26,26 @@ void _sign(__attribute__((unused)) int signal)
 	write(STDOUT_FILENO, "\n", 1);
 	write(STDOUT_FILENO, "Holbies$ ", 9);
 }
+
+/**
+ * _exit_o - function that exits the shell
+ * @argv: comand.
+ * @line: line.
+ * Return: void
+ */
+void _exit_o(char *argv, char *line)
+{
+if (_strcmp(argv, "exit") == 0)
+	{
+		if (count_words(line, " ") > 1)
+		{
+		perror("1: exit: Illegal number");
+		}
+		else
+		{
+		free(argv);
+		free(line);
+		exit(0);
+		}
+	}
+}

@@ -21,18 +21,7 @@ int main(void)
 		{
 			list_args = tokenize(line, " \n"); /*split line for get arguments*/
 			argv = list_args[0];
-
-			if (_strcmp(argv, "exit") == 0)
-			{
-				if (count_words(line, " ") > 1)
-				{
-					perror("1: exit: Illegal number: args");
-				}
-				else
-				{
-					return (0);
-				}
-			}
+			_exit_o(argv, line);
 			path = get_path(argv);
 			if (path == NULL)
 			{
