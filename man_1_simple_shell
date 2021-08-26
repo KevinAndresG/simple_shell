@@ -1,9 +1,11 @@
-.TH hsh  3 25/8/2021 "beta 1.0" "The New Shell"
+.TH simple_shell  1  2021-08-25 "beta 1.0" "custom simple_shell manual"
 .SH NAME
-.B hsh
-is similar to the original shell for execute comands and to interact
+.B simple_shell
+It is a C language program that interprets commands but in a simpler way than Shell.
 .SH SYNOPSIS
-.B  #include "shell.h"
+.B  #include "holberton.h"
+.br
+int main(void);
 .SH DESCRIPTION
 The program hsh produce an output of the comands introduced by the user to interact with the shell
 .br
@@ -29,7 +31,7 @@ this program allows execute some commands to interact with them
 .TP
 .B shell.h
 .SH RETURN VALUE
-return
+void, the main function contains an infinite loop
 .SH PROMPT
 .PP
 is the sign that always answer you for introduce a command in this case is HOLBIES$
@@ -47,7 +49,7 @@ HOLBIES$ pwd
 HOLBIES$ ls -l
 .PP it list the files in the current directory in large mode
 .SH SEE ALSO
-.B man 3 hsh
+.B man sh
 .SH AUTHORS
 .B Laura Isabela Gomez - IsabelaGomez101
 .br

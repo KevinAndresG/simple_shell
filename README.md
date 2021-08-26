@@ -12,7 +12,7 @@
 What is a shell? :
 A Shell is a program that takes the command inputs written from the the user’s keyboard and passes them to the machine to execute them through the kernel. It also verifies if the command inputs from the user are correct.
 
-Simple_shell: 
+Simple_shell:
 It is a C language program that interprets commands but in a simpler way than Shell.
 
 ## 2. Requirements ⚙️
@@ -51,7 +51,7 @@ List of allowed functions and system calls
 * wait4 (man 2 wait4)
 * write (man 2 write)
 
-## 3. How to work 💻 
+## 3. How to work 💻
 
 1. When executing our shell, the prompt appears on the screen waiting for orders
 2. once the user enters the text line that contains the commands, simple_shell gets this line and saves it in a variable.
@@ -77,7 +77,7 @@ Holbies$ exit
 $
 ```
 
-The non-interactive mode is, for example, when you type 
+The non-interactive mode is, for example, when you type
 ```
 $ echo "/bin/ls" | ./hsh
 AUTHORS   _getenv.c  func_builtin.c  getargs.c  hsh path.c shell.c README.md  execute.c  func_helper.c   getline.c  man_1_simple_shell  shell.h
@@ -91,7 +91,7 @@ $
 | ------ | ------ | ------ |
 | shell.h | This file contains all the prototypes of the functions and structures used. |
 | shell.c | This file contains our main function. | int main(void)
-| getline.c | Contain the function that get the line  | char *read_line(void) 
+| getline.c | Contain the function that get the line  | char *read_line(void)
 | getargs.c | Takes a string and divides it into small strings that will be the arguments | char **tokenize(char *str, char *delim)
 | path.c | Look for the correct command in the directories of the PATH variable | char *get_path(char *args)
 | execute.c | Use fork to start the process and run the command | int execute(char *path, char **args)
@@ -107,8 +107,8 @@ Holbies$ ls
 AUTHORS    _getenv.c  func_builtin.c  getargs.c  hsh  path.c  shell.c README.md  execute.c  func_helper.c   getline.c  man_1_simple_shell  shell.h
 Holbies$ whoami
 isagomez
-Holbies$ 
-Holbies$ 
+Holbies$
+Holbies$
 Holbies$ exit
 ```
 
