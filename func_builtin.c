@@ -36,16 +36,16 @@ void _sign(__attribute__((unused)) int signal)
 void _exit_o(char *argv, char *line)
 {
 if (_strcmp(argv, "exit") == 0)
+{
+	if (count_words(line, " ") > 1)
 	{
-		if (count_words(line, " ") > 1)
-		{
 		perror("1: exit: Illegal number");
-		}
-		else
-		{
+	}
+	else
+	{
 		free(argv);
 		free(line);
 		exit(0);
-		}
 	}
+}
 }

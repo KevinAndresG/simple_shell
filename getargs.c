@@ -13,8 +13,8 @@ char **tokenize(char *str, char *delim)
 	int bufsize = count_words(str, delim); /* to assign the exact memory*/
 	char *str_temp, **args = NULL;
 	int position = 0;
-	args = malloc(bufsize * sizeof(char *) + 1);
 
+	args = malloc(bufsize * sizeof(char *) + 1);
 	/*verify if malloc alloc the memory*/
 	if (args == NULL)
 	{
