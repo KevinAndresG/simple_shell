@@ -9,7 +9,7 @@
 6. Examples
 
 ## 1. Description 📖
-What is a shell? :
+What is a shell?
 A Shell is a program that takes the command inputs written from the the user’s keyboard and passes them to the machine to execute them through the kernel. It also verifies if the command inputs from the user are correct.
 
 Simple_shell:
@@ -60,6 +60,8 @@ List of allowed functions and system calls
 5. If the command exists, it starts the process and executes it, otherwise it shows an error on the screen.
 
 To understand how our function works, check the flowchart. 👀
+
+![Flowchart](https://github.com/KevinAndresG/simple_shell/blob/main/flowchart%20simple%20shell.png)
 
 ## 4. How to use ⌨️
 
