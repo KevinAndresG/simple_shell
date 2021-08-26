@@ -1,0 +1,54 @@
+.TH hsh  3 25/8/2021 "beta 1.0" "The New Shell"
+.SH NAME
+.B hsh
+is similar to the original shell for execute comands and to interact
+.SH SYNOPSIS
+.B  #include "shell.h"
+.SH DESCRIPTION
+The program hsh produce an output of the comands introduced by the user to interact with the shell
+.br
+this program allows execute some commands to interact with them
+.B stdarg (3)
+.SH FILES
+.TP
+.B _getenv.c
+.TP
+.B execute.c
+.TP
+.B func_bultin.c
+.TP
+.B func_helper.c
+.TP
+.B getargs.c
+.TP
+.B getline.c
+.TP
+.B path.c
+.TP
+.B shell.c
+.TP
+.B shell.h
+.SH RETURN VALUE
+return
+.SH PROMPT
+.PP
+is the sign that always answer you for introduce a command in this case is HOLBIES$
+.SH EXAMPLES
+.B for list the files to the current directory
+.br
+HOLBIES$ ls
+.br
+.B To see the path to the current directory
+.br
+HOLBIES$ pwd
+.br
+.B you can use flags like -l
+.br
+HOLBIES$ ls -l
+.PP it list the files in the current directory in large mode
+.SH SEE ALSO
+.B man 3 hsh
+.SH AUTHORS
+.B Laura Isabela Gomez - IsabelaGomez101
+.br
+.B Kevin Andres Garcia Velez - KevinAndresG
